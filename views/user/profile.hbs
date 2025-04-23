@@ -1,0 +1,44 @@
+<h1>Profil uporabnika</h1>
+
+<div class="profile-section">
+  <img src="{{this.profilePicturePath}}" alt="Profilna slika" class="profile-avatar">
+  
+  <div class="stats-item">
+    <h2>Uporabniško ime:</h2>
+    <h3>{{username}}</h3>
+  </div>
+  
+  <div class="stats-item">
+    <h2>Email:</h2>
+    <h3>{{email}}</h3>
+  </div>
+</div>
+
+<div class="profile-section">
+  <h2>Statistika</h2>
+  <div class="stats-item">
+    <span>Število vprašanj:</span>
+    <span>{{this.questionsCount}}</span>
+  </div>
+  <div class="stats-item">
+    <span>Število odgovorov:</span>
+    <span>{{this.answersCount}}</span>
+  </div>
+</div>
+
+<div class="profile-section">
+  <h3>Naloži novo profilno sliko:</h3>
+  
+  <form action="/users/profile/picture" method="POST" enctype="multipart/form-data"> 
+    <div class="form-group">
+      <input type="file" name="profileImage" accept="image/*" required class="form-control">
+    </div>
+    <div class="form-submit">
+      <button type="submit">Naloži sliko</button>
+    </div>
+  </form>
+  
+  <div class="form-submit" style="margin-top: 2rem;">
+    <a href="logout" class="btn">Odjava</a>
+  </div>
+</div>

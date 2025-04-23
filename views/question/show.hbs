@@ -1,0 +1,60 @@
+<div class="question-detail">
+  <h1>{{question.title}}</h1>
+  <p class="meta-info">
+    <img src="{{#if question.postedBy.profilePicturePath}}{{question.postedBy.profilePicturePath}}{{else}}/images/default-avatar.png{{/if}}" alt="Avatar" width="20">
+      Objavil: {{#if question.postedBy}} <a href="/users/view/{{question.postedBy._id}}">{{question.postedBy.username}}</a> {{else}} Neznan avtor {{/if}} dne {{question.createdAt}} </p>
+
+
+  <div class="question-description">
+    <p>{{question.description}}</p>
+  </div>
+</div>
+
+<div class="answers-section">
+  <h2>Odgovori:</h2>
+  {{#if answers.length}}
+    <p><small><i>Prikazujem sprejeti odgovor na vrhu, ostali odgovori so razvrščeni po času objave.</i></small></p>
+    <ul class="answers-list">
+      {{#each answers}}
+        <li class="{{#if this.isAccepted}}accepted-answer{{/if}}">
+          <div class="answer-content">
+            <p>{{this.content}}</p>
+          </div>
+          <div class="meta-info">
+            <img src="{{#if this.postedBy.profilePicturePath}}{{this.postedBy.profilePicturePath}}{{else}}/images/default-avatar.png{{/if}}" alt="Avatar" width="20">
+            Odgovoril: {{#if this.postedBy}}{{this.postedBy.username}}{{else}}Neznan avtor{{/if}} dne {{this.createdAt}}
+            {{#if this.isAccepted}} <strong>(Sprejet odgovor)</strong>{{/if}}
+            
+            {{!-- Accept Button Logic --}}
+            {{#if ../isQuestionAuthor}}
+              {{#unless this.isAccepted}}
+                <form action="/answers/{{this._id}}/accept" method="POST" style="display: inline; margin-left: 10px;">
+                  <button type="submit" class="accept-button">Sprejmi ta odgovor</button>
+                </form>
+              {{/unless}}
+            {{/if}}
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <p>Za to vprašanje še ni odgovorov.</p>
+  {{/if}}
+
+  <div class="new-answer">
+    <h3>Dodaj svoj odgovor:</h3>
+    {{#if session.userId}}
+      <form action="/answers" method="POST">
+        <input type="hidden" name="questionId" value="{{question._id}}">
+        <div class="form-group">
+          <textarea name="content" rows="4" required placeholder="Vpiši svoj odgovor tukaj..."></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit">Oddaj odgovor</button>
+        </div>
+      </form>
+    {{else}}
+      <p><a href="/users/login">Prijavite se</a>, da lahko odgovorite.</p>
+    {{/if}}
+  </div>
+</div>

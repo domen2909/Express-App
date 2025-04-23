@@ -1,0 +1,24 @@
+<h1>Profil uporabnika: {{profileUser.username}}</h1>
+
+<div class="profile-section">
+  <img src="{{profileUser.profilePicturePath}}" alt="Profilna slika" class="profile-avatar">
+  
+  <div class="stats-item">
+    <span>Email:</span> 
+    <span>{{profileUser.email}}</span>
+  </div>
+</div>
+
+<div class="profile-section">
+  <h2>Statistika</h2>
+  <div class="stats-item">
+    <span>Število objavljenih vprašanj:</span>
+    <span>{{profileUser.questionsCount}}</span>
+  </div>
+  <div class="stats-item">
+    <span>Število objavljenih odgovorov:</span>
+    <span>{{profileUser.answersCount}}</span>
+  </div>
+</div>
+
+{{!-- Tukaj bi lahko dodali seznam uporabnikovih vprašanj in odgovorov v prihodnosti --}}

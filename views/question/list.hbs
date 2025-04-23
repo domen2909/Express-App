@@ -1,0 +1,28 @@
+<h1>Vsa vprašanja</h1>
+{{#if questions.length}}
+  <ul class="question-list">
+    {{#each questions}}
+      <li>
+        <h2><a href="/questions/{{this._id}}">{{this.title}}</a></h2> 
+        <p class="meta-info">
+          <img src="{{#if this.postedBy.profilePicturePath}}{{this.postedBy.profilePicturePath}}{{else}}/images/default-avatar.png{{/if}}" alt="Avatar" width="20" style="vertical-align: middle; margin-right: 5px;">
+            Objavil: {{#if this.postedBy}}<a href="/users/view/{{this.postedBy._id}}">{{this.postedBy.username}}</a>{{else}}Neznan avtor{{/if}} dne {{this.createdAt}}        </p>
+      </li>
+    {{/each}}
+  </ul>
+  
+  {{#if session.userId}}
+    <div class="form-submit">
+      <a href="/questions/new" class="btn">Postavi novo vprašanje</a>
+    </div>
+  {{/if}}
+{{else}}
+  <div class="question-detail">
+    <p>Trenutno ni objavljenih vprašanj.</p>
+    {{#if session.userId}}
+      <div class="form-submit">
+        <a href="/questions/new" class="btn">Postavi prvo vprašanje</a>
+      </div>
+    {{/if}}
+  </div>
+{{/if}}

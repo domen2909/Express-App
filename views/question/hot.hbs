@@ -1,0 +1,23 @@
+<h1>Vroča vprašanja</h1>
+<p><small><i>Razvrščeno po aktivnosti (ogledi + odgovori).</i></small></p>
+
+{{#if questions.length}}
+  <ul class="question-list">
+    {{#each questions}}
+      <li>
+        <h2><a href="/questions/{{this._id}}">{{this.title}}</a></h2> 
+        <p class="meta-info">
+          <img src="{{#if this.postedBy.profilePicturePath}}{{this.postedBy.profilePicturePath}}{{else}}/images/default-avatar.png{{/if}}" alt="Avatar" width="20" style="vertical-align: middle; margin-right: 5px;">
+          Objavil: {{#if this.postedBy}}{{this.postedBy.username}}{{else}}Neznan avtor{{/if}} dne {{this.createdAt}}
+        </p>
+        <p class="meta-info">
+          <small>Ogledi: {{this.views}}, Odgovori: {{this.answerCount}}, Vročost: {{this.hotness}}</small>
+        </p>
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <div class="question-detail">
+    <p>Trenutno ni objavljenih vprašanj.</p>
+  </div>
+{{/if}}

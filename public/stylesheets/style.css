@@ -1,0 +1,499 @@
+/* SPLOŠNI STILI */
+:root {
+  --primary-color: #3498db;
+  --primary-dark: #2980b9;
+  --secondary-color: #e74c3c;
+  --text-color: #333;
+  --light-gray: #f5f5f5;
+  --medium-gray: #ddd;
+  --dark-gray: #777;
+  --success-color: #27ae60;
+  --border-radius: 6px;
+  --container-padding: 30px;
+  --content-padding: 20px;
+  --mobile-padding: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-color);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  min-height: 100%;
+  width: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden; /* Preprečevanje horizontalnega scrollbara */
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 var(--container-padding);
+}
+
+/* TIPOGRAFIJA */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  line-height: 1.3;
+  color: #333;
+  padding: 0 5px; /* Dodan horizontalni odmik */
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  color: var(--primary-dark);
+  border-bottom: 2px solid var(--medium-gray);
+  padding-bottom: 0.8rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.2rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin: 0 0 1.2rem;
+  padding: 0 5px; /* Dodan horizontalni odmik */
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s, background-color 0.2s;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+  background-color: rgba(52, 152, 219, 0.05);
+}
+
+hr {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 1.5px solid var(--medium-gray);
+}
+
+/* NAVIGACIJA */
+nav {
+  background-color: white;
+  border-bottom: 1px solid var(--medium-gray);
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Zagotovi, da je navigacija na vrhu ostalih elementov */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  justify-content: center; /* Centriranje na mobilnih napravah */
+}
+
+nav ul li {
+  margin: 5px; /* Dodan odmik med elementi */
+}
+
+nav ul li a {
+  text-decoration: none;
+  padding: 10px 16px;
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+}
+
+nav ul li a:hover {
+  background-color: var(--light-gray);
+  text-decoration: none;
+}
+
+/* Profil avatar v navigaciji */
+nav img.avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* SEZNAMI */
+ul.question-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+ul.question-list li {
+  background-color: white;
+  padding: var(--content-padding);
+  margin-bottom: 1.2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid #f0f0f0;
+}
+
+ul.question-list li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+ul.question-list h2 {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  padding: 0 5px;
+}
+
+ul.question-list h2 a {
+  color: var(--primary-color);
+  font-size: 1.4rem;
+}
+
+.meta-info {
+  font-size: 0.9rem;
+  color: var(--dark-gray);
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  margin: 8px 0;
+}
+
+.meta-info img {
+  margin-right: 8px;
+}
+
+/* POSAMEZNO VPRAŠANJE */
+.question-detail {
+  background-color: white;
+  padding: var(--content-padding);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  margin-bottom: 2rem;
+  border: 1px solid #f0f0f0;
+}
+
+.question-description {
+  margin-top: 1.2rem;
+  line-height: 1.8;
+  padding: 0 8px;
+}
+
+/* ODGOVORI */
+.answers-section {
+  margin-top: 2.5rem;
+}
+
+.answers-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.answers-list li {
+  background-color: white;
+  padding: var(--content-padding);
+  margin-bottom: 1.2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  border: 1px solid #f0f0f0;
+}
+
+.answer-content {
+  margin-bottom: 1rem;
+  padding: 0 8px;
+}
+
+/* OBRAZCI */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.7rem;
+  font-weight: 500;
+  padding: 0 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--medium-gray);
+  border-radius: var(--border-radius);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: #fff;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus,
+.form-group textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.form-submit {
+  margin-top: 1.5rem;
+  padding: 0 5px;
+}
+
+button, 
+input[type="submit"],
+.btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+  display: inline-block;
+}
+
+button:hover, 
+input[type="submit"]:hover,
+.btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+
+/* Gumbi za sprejemanje odgovora */
+.accept-button {
+  background-color: var(--success-color);
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  margin-left: 10px;
+}
+
+.accept-button:hover {
+  background-color: #219653;
+}
+
+/* Sprejet odgovor */
+.accepted-answer {
+  background-color: #e6ffed;
+  border-left: 4px solid var(--success-color);
+}
+
+.accepted-answer strong {
+  color: var(--success-color);
+}
+
+/* UPORABNIŠKI PROFIL */
+.profile-section {
+  background-color: white;
+  padding: var(--content-padding);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  margin-bottom: 2rem;
+  border: 1px solid #f0f0f0;
+}
+
+.profile-avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 10px auto 20px;
+  border: 4px solid var(--medium-gray);
+  display: block; /* Centriranje slike */
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.stats-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--medium-gray);
+  margin: 5px 0;
+}
+
+/* Dodamo odzivnost za obrazce za prijavo in registracijo */
+form[action="login"], form[action="/users"] {
+  background-color: white;
+  padding: var(--content-padding);
+  border-radius: var(--border-radius);
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.new-answer {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: var(--border-radius);
+  margin-top: 20px;
+}
+
+/* ODZIVNOST - bolje prilagojeno za mobilne naprave */
+@media (max-width: 900px) {
+  :root {
+    --container-padding: 20px;
+    --content-padding: 15px;
+  }
+  
+  .container {
+    margin: 20px auto;
+  }
+  
+  h1 {
+    font-size: 1.9rem;
+  }
+  
+  h2 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --container-padding: 15px;
+    --content-padding: 15px;
+  }
+
+  .container {
+    margin: 15px auto;
+    width: 100%;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 0 10px;
+  }
+  
+  nav ul li {
+    width: 100%;
+    margin: 3px 0;
+  }
+  
+  nav ul li a {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  ul.question-list li {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .question-detail, .profile-section, .answers-list li {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  
+  button, 
+  input[type="submit"],
+  .btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+  }
+
+  .meta-info {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --container-padding: 12px;
+    --content-padding: 12px;
+  }
+  
+  body {
+    font-size: 15px;
+  }
+  
+  .container {
+    margin: 10px auto;
+    padding: 0 var(--container-padding);
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.6rem;
+  }
+  
+  h2 {
+    font-size: 1.2rem;
+  }
+  
+  h3 {
+    font-size: 1.1rem;
+  }
+  
+  .profile-avatar {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 15px;
+  }
+  
+  .form-group input, .form-group textarea {
+    padding: 10px;
+  }
+  
+  .question-detail, .answers-list li {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+  
+  ul.question-list li {
+    padding: 12px;
+  }
+}
